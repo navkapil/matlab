@@ -1,4 +1,5 @@
 function [err] = knl_leastSquares(dataset, knl_para)
+% The code is kernelized with the help of http://www.cs.cornell.edu/courses/cs4780/2015fa/web/lecturenotes/lecturenote14_2.html
 %knl_leastSquares(dataset, 2)
 
 xtrain = dataset(:,1:end-2);
