@@ -1,5 +1,6 @@
 # repository for matlab codes of some standard techniques
 
+## Cross-validation code for MATLAB (files required: crossvalidation.m blocking.m)
 `function[optpara] = crossvalidation(foldabledata,otherpara,parameterlist,train_func,test_func, prfrmncePara,fold)`
 
  `foldabledata`: An array of size (1 x Number of Classes), at each index a 2-dim array of input samples having features and the target value is kept in the structure's data member `data`
