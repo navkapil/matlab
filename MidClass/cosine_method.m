@@ -26,5 +26,7 @@ function [neutral] = cosine_method(train_data,knl,knl_para)
         K = knl(D,D,knl_para);
         dist(A) = h1*K*h2';
     end
-    [~,neutral] = min(dist);
+    [~,indx] = min(dist);
+    neutral.index = indx; % index of the class that should come out to be neutral
+    neutral.label = train_data(j).data(1,end); % label of the class that should come out to be neutral
 end
