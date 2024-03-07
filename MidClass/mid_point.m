@@ -4,7 +4,7 @@ function [neutral] = mid_point(train_data,knl,knl_para)
     % knl: handle to kernel function
     % knl_para: kernel parameter
     % ----------------------------------------
-    % It returns the class label which is nearest to the mid way between the
+    % It returns the index of the class which is nearest to the mid way between the
     % other two class centroids
     num_classes = length(train_data);
     cd = struct([]);
@@ -23,6 +23,7 @@ function [neutral] = mid_point(train_data,knl,knl_para)
         K = knl(D,D,knl_para);
         dist(A) = h*K*h';
     end
-    [~,neutral] = min(dist);
-    % neutral = train_data(j).data(1,end);
+    [~,indx] = min(dist);
+    neutral.index = indx; % index of the class that should come out to be neutral
+    neutral.label = train_data(j).data(1,end); % label of the class that should come out to be neutral
 end
