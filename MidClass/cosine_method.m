@@ -5,7 +5,8 @@ function [neutral] = cosine_method(train_data,knl,knl_para)
 % knl_para: kernel parameter
 % ----------------------------------------
 % It returns the class whose centroid if taken as vertex of the angle, then 
-% show the least value of the dot product 
+% show the least value of the dot product (higher negative value shows that 
+% the two classes are in the opposite direction of the pivotal class) 
 
     num_classes = length(train_data);
     cd = struct([]);
