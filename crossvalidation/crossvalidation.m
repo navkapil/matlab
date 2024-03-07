@@ -41,7 +41,8 @@ end
 index = zeros(1,size(parameterlist,2));
 parameter = zeros(nloop,size(parameterlist,2));
 
-
+% This loop is creating all possible combinations of hyperparameters and putting it in the rows of 
+% parameter
 for i = 0:nloop-1
     temp = i;
     for j = size(parameterlist,2):-1:1
@@ -54,18 +55,25 @@ error = zeros(nloop,1);
 parfor i = 0:nloop-1
     parameter(i+1,:)
     for j = 1:fold
-        [trainfold,testfold] = blocking(foldabledata,fold,j);
-                
+        % creates fold number of division of entire data in foldabledata and the j-th division in testfold and all other in trainfold
+        [trainfold,testfold] = blocking(foldabledata,fold,j); 
+
+        % train the model on trainfold
         [Mdl] = train_func(trainfold,otherpara,parameter(i+1,:));
+        
+        % get the prediction on testfold
         [res] = test_func(trainfold,testfold,parameter(i+1,:),Mdl,otherpara);
 
+        % get the values of performance parameters
         [val] = prfrmncePara(res.act,res.PC);
+
+        % accumulate the error for all iterations of crossvalidation
         error(i+1) = error(i+1) + val.err;
     end
 end
 [~,indx] = min(error);
 optpara.para = parameter(indx,:);
 optpara.minerr = error(indx);
-optpara.parameter = parameter;
-optpara.error = error;
+optpara.parameter = parameter; % all parameter combinations
+optpara.error = error; % error for each combination of parameter values
 %optpara.Mdl = Mdl;
