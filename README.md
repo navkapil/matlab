@@ -1,5 +1,6 @@
 # Repository for MATLAB codes of some standard techniques
 
+## Least Squares with Kernel (non-linear version)
 ## Standard SVM
 
 ## TwinSVM for Multi-class SVM
