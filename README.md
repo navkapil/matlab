@@ -10,7 +10,7 @@
 ## Utilise the code from this repository with  
 CC BY-NC-SA 4.0 Deed
 Attribution-NonCommercial-ShareAlike 4.0 International 
-
+'''
 You Need to cite the repository for the code 
 Author: Kapil 
 Affiliation: Department of Computer Applications, NIT Kurukshetra
