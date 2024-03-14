@@ -52,7 +52,7 @@ for i = 0:nloop-1
     end
 end
 error = zeros(nloop,1);
-parfor i = 0:nloop-1
+parfor i = 0:nloop-1 %parfor may be replaced by for, if you don't want parallelism
     parameter(i+1,:)
     for j = 1:fold
         % creates fold number of division of entire data in foldabledata and the j-th division in testfold and all other in trainfold
