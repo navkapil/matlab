@@ -1,3 +1,5 @@
+# Cross validation
+The code here is capable of allowing you to fine-tune your hyperparameters for your model. MatLab provides cross-validation code only for certain classifiers that it provides. If you are interested in working on your code this might help.
 ## Cross-validation code for MATLAB (files required: crossvalidation.m blocking.m)
 ### function signature for crossvalidation
 `function[optpara] = crossvalidation(foldabledata,otherpara,parameterlist,train_func,test_func, prfrmncePara,fold)`
